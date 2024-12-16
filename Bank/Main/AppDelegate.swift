@@ -6,14 +6,24 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        IQKeyboardManager.shared.isEnabled = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let rootViewController = SplashScreenVC()
+        window?.rootViewController = rootViewController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
